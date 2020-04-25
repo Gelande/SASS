@@ -1,0 +1,64 @@
+// ----
+// Sass (vundefined)
+// Compass (vundefined)
+// ----
+
+/*for*/
+/*through e to*/
+
+@for $i from 1 through 3 {
+  .item-#{$i} {
+    background-color: green;
+    margin-bottom: 2px;
+  }
+}
+
+/*while*/
+$contador: 1;
+@while $contador < 5 {
+  .item-#{$contador} {
+    background-color: orange;
+    margin-bottom: 2px;
+  }
+  $contador: $contador + 1;
+}
+
+/*each - utilizado para listas*/
+$lista: green, yellow, red;
+$contador: 1;
+@each $cor in $lista {
+  
+  .item-#{$contador} {
+    background-color: $cor;
+    margin-bottom: 2px;
+  }
+  
+  $contador: $contador + 1;
+}
+
+/*funções*/
+$total: 12;
+@function largura-coluna($coluna) {
+  
+  @return percentage($coluna/$total);
+}
+
+@for $i from 1 through $total {
+  .col-#{$i} {
+    width: largura-coluna($i);
+    background-color: green;
+  }
+}
+
+/*
+Outras funções
+mix(green, orange, 50%) misturar cores
+darken(blue, 30%) cor mais escura
+lighten(orange, 10%) cor mais clara
+*/
+
+.alerta {
+  background: lighten(orange, 10%);
+  color: yellow;
+}
+
